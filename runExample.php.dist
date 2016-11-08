@@ -1,0 +1,36 @@
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = new \TonicWorks\Quotexpress\Configuration\QxConfig(
+    'server',
+    'username',
+    'password',
+    1
+);
+
+$example = new \TonicWorks\Quotexpress\Example($config);
+
+try {
+    $quoteHash = $example->createQuote();
+
+    if (is_string($quoteHash)) {
+        echo "Created quote: {$quoteHash} \n";
+        $example->sendNotification($quoteHash, 'test@example.com', 1);
+        // Redirect to a 'Display Quote' page with the hash as a parameter, and
+        // then use these methods to retrieve and display the quote:
+
+        $quote = $example->retrieveQuote($quoteHash);
+        $vars = $quote->getVariables('discountFees');
+
+        // var_export($vars);
+
+        echo "Total quote: £" . $vars['quoteSummary']['preDiscount']['totalInc'] . "\n";
+    } else {
+        echo 'Failed to create quote';
+    }
+} catch (\TonicWorks\Quotexpress\Exception\QxException $exception) {
+    echo $exception->getRequest();
+}
+
+
+

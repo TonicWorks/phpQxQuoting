@@ -1,0 +1,18 @@
+{
+    "name": "tonicworks/phpqxquoting",
+    "description": "Quote creation and submission in PHP for QuoteXpress",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Steven Dickinson",
+            "email": "sd@tonic.works"
+        }
+    ],
+    "autoload": {
+        "psr-4": { 
+            "TonicWorks\\Quotexpress\\": "src/"
+        }
+    },
+    "require": {}
+}
