@@ -18,6 +18,8 @@ class SaleValues extends AbstractValues {
     protected $isHelpToLoan;
     protected $isNewBuyScheme;
     protected $isAgreed;
+    /** @var boolean */
+    private $isAuction;
 
     public function validate(&$errs) {
         $saleErrs = array();
@@ -202,6 +204,22 @@ class SaleValues extends AbstractValues {
      */
     public function setIsAgreed($isAgreed) {
         $this->isAgreed = $isAgreed;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsAuction() {
+        return $this->isAuction;
+    }
+
+    /**
+     * @param bool $isAuction
+     * @return SaleValues
+     */
+    public function setIsAuction($isAuction) {
+        $this->isAuction = $isAuction;
+        return $this;
     }
 }
 

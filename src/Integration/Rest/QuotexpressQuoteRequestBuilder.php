@@ -115,6 +115,7 @@ class QuotexpressQuoteRequestBuilder implements QuoteRequestBuilderInterface {
         if ($node->getIsHelpToMortgage()) $result['conveyancingValues']['isHelpToMortgage'] = true;
         if ($node->getIsNewBuyScheme()) $result['conveyancingValues']['isNewBuyScheme'] = true;
         if ($node->getIsAgreed()) $result['conveyancingValues']['isAgreed'] = true;
+        if ($node->getIsAuction()) $result['conveyancingValues']['isAuction'] = true;
 
         return $result;
     }
